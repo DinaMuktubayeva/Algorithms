@@ -9,10 +9,10 @@ void merge(std::vector<int> &arr, int start, int middle, int end) {
     std::vector<int> leftArray(middle - start + 1);
     std::vector<int> rightArray(end - middle);
 
-    for (int i = 0; i < leftArray.size(); ++i)
+    for (size_t i = 0; i < leftArray.size(); ++i)
         leftArray[i] = arr[start + i];
 
-    for (int i = 0; i < rightArray.size(); ++i)
+    for (size_t i = 0; i < rightArray.size(); ++i)
         rightArray[i] = arr[middle + 1 + i];
 
     int leftIndex = 0, rightIndex = 0;
