@@ -1,11 +1,10 @@
-#include <stdio.h>
 #include <iostream>
 #include <vector>
 
-/* Sorts a vector using merge sort algorithm */ 
+/* Sort a vector with the merge sort algorithm */
 
-void merge(std::vector<int> &arr, int start, int middle, int end) {
-
+void merge(std::vector<int> &arr, int start, int middle, int end)
+{
     std::vector<int> leftArray(middle - start + 1);
     std::vector<int> rightArray(end - middle);
 
@@ -18,29 +17,33 @@ void merge(std::vector<int> &arr, int start, int middle, int end) {
     int leftIndex = 0, rightIndex = 0;
     int currentIndex = start;
 
-    while (leftIndex < leftArray.size() && rightIndex < rightArray.size()) {
-        if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+    while (leftIndex < leftArray.size() && rightIndex < rightArray.size())
+    {
+        if (leftArray[leftIndex] <= rightArray[rightIndex])
+        {
             arr[currentIndex] = leftArray[leftIndex];
             leftIndex++;
-        } else {
+        }
+        else
+        {
             arr[currentIndex] = rightArray[rightIndex];
             rightIndex++;
         }
         currentIndex++;
     }
 
-    while (leftIndex < leftArray.size()) {
+    // adding the "leftover" elements
+    while (leftIndex < leftArray.size())
         arr[currentIndex++] = leftArray[leftIndex++];
-    }
 
-    while (rightIndex < rightArray.size()) {
+    while (rightIndex < rightArray.size())
         arr[currentIndex++] = rightArray[rightIndex++];
-    }
 }
 
-void mergeSort(std::vector<int> &arr, int start, int end) {
-
-    if (start < end) {
+void mergeSort(std::vector<int> &arr, int start, int end)
+{
+    if (start < end)
+    {
         int middle = (start + end) / 2;
 
         mergeSort(arr, start, middle);
@@ -49,27 +52,27 @@ void mergeSort(std::vector<int> &arr, int start, int end) {
     }
 }
 
-void print(std::vector<int>& arr) {
-
-    for (size_t i = 0; i < arr.size(); ++i) {
+void print(std::vector<int> &arr)
+{
+    for (size_t i = 0; i < arr.size(); ++i)
         std::cout << arr[i] << ' ';
-    }
 
     std::cout << '\n';
 }
 
-int main() {
-
+int main()
+{
     std::vector<int> arr;
 
     int n = 10;
 
-    for (size_t i = 0; i < n; ++i) {
+    for (size_t i = 0; i < n; ++i)
+    {
         int r = rand() % 10 + 1;
         arr.push_back(r);
     }
 
-    std::cout << "Initial array: "; 
+    std::cout << "Initial array: ";
     print(arr);
 
     mergeSort(arr, 0, arr.size() - 1);
