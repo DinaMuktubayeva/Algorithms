@@ -77,6 +77,6 @@ int main()
 
     mergeSort(arr, 0, arr.size() - 1);
 
-    std::cout << "Sorted array: ";
+    std::cout << "Sorted array:  ";
     print(arr);
 }

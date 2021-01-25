@@ -40,6 +40,6 @@ int main()
 
     bubbleSort(arr);
 
-    std::cout << "Sorted array: ";
+    std::cout << "Sorted array:  ";
     print(arr);
 }
